@@ -1,14 +1,14 @@
 Bulk deployment of Site24x7 Linux agent using Puppet
 ===========
 
-This puppet recipe installs Site24x7 Server Monitoring agent on Linux platforms. Please create a Site24x7 account to install the Linux agent using Puppet. Sign Up Now for a Free Trial!  
+This puppet recipe installs Site24x7 Server Monitoring agent on Linux platforms.
+Please create a Site24x7 account to install the Linux agent using Puppet.
 
 
-Supported Platforms 
+Supported Platforms
 ============
 
-All Linux platforms with Glibc version - 2.5 and above,  including Centos, Debian, Fedora, 
-Redhat, Suse, Ubuntu
+See metadata.
 
 Params
 ============

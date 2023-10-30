@@ -1,26 +1,22 @@
-class site24x7::download_handler{
-    file {'/tmp/site24x7agent':
-	ensure=>directory,
-	mode=>"0755",
-	}
-	exec {'Site24x7 Linux Agent':
-	unless => "/usr/bin/test -f /tmp/site24x7agent/Linux_Agent.install",
-	#environment => [
-    #"http_proxy=http://$site24x7::linuxagent::agent_proxy",
-    #"https_proxy=http://$site24x7::linuxagent::agent_proxy",
-    #"HTTP_PROXY=http://$site24x7::linuxagent::agent_proxy",
-    #"HTTPS_PROXY=http://$site24x7::linuxagent::agent_proxy"
-  #	],
-	command => "/usr/bin/curl https://staticdownloads.site24x7.com//server//$site24x7::linuxagent::install_file > /tmp/site24x7agent/Linux_Agent.install",
-	creates => "/tmp/site24x7agent/Linux_Agent.install",
-	notify => File["/tmp/site24x7agent/Linux_Agent.install"],
-	require => File["/tmp/site24x7agent"]
+class site24x7::download_handler {
+
+
+	exec { 'Site24x7 Linux Agent':
+    command => "curl https://staticdownloads.site24x7.com//server//${site24x7::linuxagent::install_file} > /opt/.site24x7agent/Linux_Agent.install",
+  	creates => '/opt/.site24x7agent/Linux_Agent.install',
+    notify  => File["/opt/.site24x7agent/Linux_Agent.install"],
+	  path    => $::path,
+    require => File["/opt/.site24x7agent"]
+  	unless  => "/usr/bin/test -f /opt/.site24x7agent/Linux_Agent.install",
 	}
 
-	file {'/tmp/site24x7agent/Linux_Agent.install':
-	require => Exec['Site24x7 Linux Agent'],
-	mode => "0755",
-	#notify => Exec['Install Linux Agent'],
+  file { '/opt/.site24x7agent':
+    before => Exec['Site24x7 Linux Agent'],
+	  ensure => directory,
+	  mode   => '0755',
+	}
+	file { '/opt/.site24x7agent/Linux_Agent.install':
+    mode => '0755',
 	}
 
 }
