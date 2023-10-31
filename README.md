@@ -1,36 +1,31 @@
+This Module Features
+=====================
+- Forked from https://github.com/site24x7/puppet-site24x7/
+- Manages the resulting system service and ensures enabled & running by default
+- Doesn't download the agent installer or execute commands/notify on every puppet run
+- Uses PDK for correct syntax and future proofing
+
 Bulk deployment of Site24x7 Linux agent using Puppet
 ===========
-
 This puppet recipe installs Site24x7 Server Monitoring agent on Linux platforms.
 Please create a Site24x7 account to install the Linux agent using Puppet.
 
-
 Supported Platforms
 ============
+Linux OSs including Debian and derivatives such as Ubuntu, RedHat and derivatives such as Scientific.
 
-See metadata.
-
-Params
+Parameters
 ============
-
-$site24x7agent_devicekey = Your device Key is available under the Site24x7 "Add Server Monitor" page. Log In and navigate to Home > Monitors > Click on the (+) icon > Linux Server Monitoring.
-
-Site24x7 device key is unique for your account. Alternate device Key can also be generated from your Site24x7 account under Admin > Developer > Device Key.
-
-$site24x7agent_proxy = Proxy server required to connect to the Site24x7 servers. Example : user:password@proxyhost:proxyport
-
+$device_key = Your device Key is available under the Site24x7 "Add Server Monitor" page. Log In and navigate to Home > Monitors > Click on the (+) icon > Linux Server Monitoring. Site24x7 device key is unique for your account. Alternate device Key can also be generated from your Site24x7 account under Admin > Developer > Device Key.
+$agent_proxy = Proxy server required to connect to the Site24x7 servers. Example : user:password@proxyhost:port
 
 Installation Steps
 ============
-
-1. Download the Site24x7 module into your puppet modules directory: (the module directory name must be site24x7) https://github.com/site24x7/puppet-site24x7
-2. Set your device key as described in the Params section. Edit 'site24x7/manifests/params.pp'.
-3. Set '$site24x7agent_devicekey' with your unique Site24x7 device Key.
-	for eg - $site24x7agent_devicekey='06bb765a221c269ba0f9a1ebc22ad259'
-4. Set proxy attribute if necessary
-        for eg - $site24x7agent_proxy= "user:password@proxyhost:proxyport"
-5. If proxy is needed for downloading Site24x7Linux agent, kindly uncomment the environment value in download_handler.pp. This assumes, the proxy you have mentioned in params.pp is the proxy needed for downloading the agent file.
-6. View your servers from your Site24x7 account. https://www.site24x7.com/login.html
+1. Download the Site24x7 module into your puppet modules directory from Puppet Forge or https://github.com/Veeps-Hosting/site24x7
+2. Set your device key.
+3. Set proxy attribute if necessary, eg. $agent_proxy= "user:password@proxyhost:proxyport"
+4. Assign classes and run Puppet to install the agent
+5. View your servers from your Site24x7 account. https://www.site24x7.com/login.html
 
 Related Links
 =====

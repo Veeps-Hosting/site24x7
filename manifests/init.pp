@@ -25,7 +25,6 @@ class site24x7 (
     notify  => Exec['Install Site24x7 Agent'],
     path    => $::path,
     require => File['/opt/.site24x7agent'],
-    unless  => 'test -f /opt/.site24x7agent/Linux_Agent.install',
   }
   file { '/opt/.site24x7agent/Linux_Agent.install':
     mode    => '0755',

@@ -1,6 +1,6 @@
 {
   "name": "veepshosting-site24x7",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "grant-veepshosting",
   "summary": "",
   "license": "MIT",
@@ -12,13 +12,13 @@
     {
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
-        "7"
+        "8"
       ]
     },
     {
       "operatingsystem": "OracleLinux",
       "operatingsystemrelease": [
-        "7"
+        "8"
       ]
     },
     {
@@ -30,7 +30,7 @@
     {
       "operatingsystem": "Scientific",
       "operatingsystemrelease": [
-        "7"
+        "8"
       ]
     },
     {
