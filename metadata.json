@@ -2,9 +2,11 @@
   "name": "veepshosting-site24x7",
   "version": "1.0.0",
   "author": "grant-veepshosting",
-  "summary": "",
+  "summary": "Manage Site24x7 Agent installation and system service",
   "license": "MIT",
-  "source": "",
+  "source": "https://github.com/Veeps-Hosting/site24x7",
+  "project_page": "https://github.com/Veeps-Hosting/site24x7",
+  "issues_url": "https://github.com/Veeps-Hosting/site24x7",
   "dependencies": [
 
   ],
